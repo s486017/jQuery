@@ -29,5 +29,48 @@
 </body>
 </html>
 
+<script src="../jquery-3.4.1.js"></script>
+<script>
+	var init = function() {
+		$('*').css('background','');  // 설정초기화 함수
+	}
+
+	$('#has').on('click', function(event){		
+		init();
+		$('a[target]').css('background', '#ccc');
+	});
+
+	$('#equal').on('click', function(event){		
+		init();
+		$('a[href="http://slqer.com"]').css('background', '#ccc');
+	});
+	
+	$('#notequal').on('click', function(event){		
+		init();
+		$('a[href!="http://slqer.com"]').css('background', '#ccc');
+	});
+	
+	$('#startwith').on('click', function(event){		
+		init();
+		$('a[href^="http://h"]').css('background', '#ccc');
+	});
+	
+	$('#endwith').on('click', function(event){		
+		init();
+		$('a[href$="net"]').css('background', '#ccc');
+	});
+
+	$('#contains').on('click', function(event){		
+		init();
+		$('a[name*="man"]').css('background', 'yellow');
+	});
+
+	$('#findword').on('click', function(event){		
+		init();
+		$('a[name~="man"]').css('background', 'yellow');
+	});
+
+</script>
+
 <!-- ����Ʈ -->
-
+

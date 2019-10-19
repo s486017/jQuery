@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
-    
+    <script>
+        // 
+        var add = function () {
+            return 1;
+        };
+        var x = add();
+
+        console.log('x = ' + x);
+
+        // 
+
+        var add2 = function () {            
+            return 1+'2';
+        };
+
+        
+        x2 = add2(1, 2);
+        console.log('x2 = ' + x2);
+
+        // 
+        // 1 과 '2'를 입력받고
+        // 입력 값을 더하기 한 결과를 리터하는 add3 함수를 만드시오.
+
+        var add3 = function (a, b) {
+            var sum = a + b;
+            // console.log('sum = ' + sum);
+            return sum;
+        };
+        
+        // add3 함수 호출 결과, 반환값 을 변수 x에 넣으시오
+        var x3;
+        x3 = add3(1, '2');
+        console.log('x3 = ' + x3);
+
+    </script>
+
 </head>
+
 <body>
 
 </body>
-</html>
+
+</html>

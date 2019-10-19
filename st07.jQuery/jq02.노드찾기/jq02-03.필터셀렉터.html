@@ -63,4 +63,30 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+
+<script>
+    $('#checked').on('click', function(event) {
+        // window.alert('click!!!');
+        // input tag는 outline을 사용
+        //  그 이외에는 border를 사용
+        $('input:checkbox:checked').css('outline','3px dotted red');
+        
+    });
+
+    $('#radio').on('click', function(event) {
+        // window.alert('click!!!');        
+        $('input:radio:checked').css('outline','3px dotted red');
+    });
+
+    $('#selected').on('click', function(event) {
+        // window.alert('click!!!');
+        $('select>option:selected').css('outline','3px dotted red');
+    });
+
+    $('#hobby').on('click', function(event) {
+        // window.alert('click!!!');
+        $('input[name="hobby"]:checkbox:checked').css('outline','3px dotted red');
+    });
+    
+</script>

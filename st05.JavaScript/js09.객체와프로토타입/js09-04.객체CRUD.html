@@ -3,6 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
+    <script>
+        var foo = {
+            name : 'foo',
+            age : 30,
+            array : [1,2,3],
+            run : function() {
+                return this.name;
+            },
+        };
+
+        // read
+        console.log('foo.name --> '+foo.name);
+        console.log("foo['name'] -->" +foo['name']);
+      
+        // update
+        foo.name    = 'bar';
+        foo.age     = 50;
+        console.log('foo.name --> '+foo.name);
+        console.log('foo.age --> '+foo.age);
+ 
+        // create
+        // gender       프러퍼티를 추가하고 man을 저장
+        // nickname     프러퍼티를 추가하고 'ba'를 저장
+        // gendar 와 nickname 을 출력하시오
+
+        foo.gender      = 'man';
+        foo.nickname    = 'ba';
+        console.log('foo.gender --> '+foo.gender);
+        console.log('foo.nickname --> '+foo.nickname);
+
+        // delete
+        // gender       프러퍼티를 삭제
+        // nickname     프러퍼티를 삭제
+        // gendar 와 nickname 을 출력하시오
+        delete foo.gender;
+        delete foo.nickname;
+
+        console.log('foo.gender --> '+foo.gender);
+        console.log('foo.nickname --> '+foo.nickname);
+
+
+        //객차의 프러퍼티를 열거한다.
+        for (var _temp in foo) {
+            if (typeof foo[_temp] != 'function') {
+                console.log(_temp, typeof foo[_temp],  foo[_temp]);
+            } else {
+                console.log(_temp, 'function 입니다. ');
+            }
+             
+        };
+
+    </script>
     
 </head>
 <body>

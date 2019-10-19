@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
+    <script>
+        //  변수와 함수 선언
+        // 변수 --> 프러퍼티, 함수 --> 메서드
+
+        var name = 'foo';
+        var age  = 30;
+        var run = function( ) {
+            console.log('run');
+        };
+
+        var person = {
+            name : 'foo',
+            age  : 30,
+            run : function( ) {console.log('run');},
+        };
+
+        // person의 name을 출력하시오.
+        console.log(person.name);
+        console.log(person['name']);
+        console.log(person.run());
+
+    </script>
     
 </head>
 <body>
 
 </body>
-</html>
+</html>

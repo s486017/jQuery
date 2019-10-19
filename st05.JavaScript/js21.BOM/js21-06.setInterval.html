@@ -13,4 +13,45 @@
     <div id="result">   </div>
 </p>
 </body>
-</html>
+
+<script>
+    
+    // 타이머 설정하기
+    // 1. start, stop에 click 이벤트 설정
+    var start = document.getElementById('start');
+    var stop = document.getElementById('stop');
+
+    // 2. start를 클릭하면 
+    start.onclick = function(event) {
+        window.alert('strat 버튼 클릭');
+
+        // disabled 설정
+        //  stop 버튼을 활성화
+        //  start 버튼 비활성화
+        stop.disabled = false;
+        start.disabled = true;
+        
+        //  1초마다 타이머 설정. setInterval() 함수 사용
+        setInterval(function() {}, 100) ; // 0.1초
+
+
+    };
+
+    // 3. stop를 클릭하면 
+    stop.onclick = function(event) {
+        // window.alert('stop 버튼 클릭');
+
+        // disabled 설정
+        //  stop 버튼을 비활성화
+        //  start 버튼 활성화
+        stop.disabled = true;
+        start.disabled = false;
+
+        //  Timer 종료, cleartInterval() 함수 사용
+        clearInterval(timerID());
+        // clearInterval(timerID);
+
+    };
+
+</script>
+</html>

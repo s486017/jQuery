@@ -3,15 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     
 </head>
 <body>
-    <p name='name'>고전 이벤트 모델</p>
-    <p name='name'>고전 이벤트 모델</p>
-    <p name='name'>고전 이벤트 모델</p>
+    <p name='name' no='1'>고전 이벤트 모델</p>
+    <p name='name' no='2'>고전 이벤트 모델</p>
+    <p name='name' no='3'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
 </body>
-</html>
+<script>
+    window.onload = function(event) {
+        var p_arr = document.getElementsByName('name');
+        // console.log(p);
+        // console.log(p[0].innerHTML);
+                
+        // p[0].onclick = function(event) {
+        // // alert --> 버튼이 클릭되었습니다. 
+        // window.alert("p tag가 클릭되었습니다!!"); 
+        
+        // p[0].innerHTML= "텍스트 변경";
+
+        // };
+
+        console.log(p_arr);
+        for(var i= 0; i<p_arr.length; i++) {
+            // console.log('p_arr : ' + i);
+            p_arr[i].count = i; // javascript의 프러퍼티는 html의 속성(attrbute)로 바뀜
+            p_arr[i].setAttribute("count",i);
+
+            p_arr[i].onclick = function(event) {
+            
+                    // alert --> 버튼이 클릭되었습니다. 
+                // var text = i+"번째 ";    
+                console.log( this.getAttribute('count') +'번째 p tag가 클릭되었습니다!! ' + this.getAttribute('name'));
+                // console.log(i);
+            };
+        };
+    };
+
+
+
+
+</script>
+
+</html>

@@ -47,4 +47,23 @@
 
 <!-- 임포트 -->
 
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $('#element_read').on('click', function(event){
+        var result = $('p.pclick').html();
+        window.alert(result);
+    });
+
+    $('#element_create').on('click', function(event){
+        $('#result_element').html('<img src="images/im1.jpg">');
+    });
+
+    $('#element_update').on('click', function(event){
+        var result = $('p.pclick').html();
+        $('#result_element').html(result);
+    });
+
+
+
+
+</script>

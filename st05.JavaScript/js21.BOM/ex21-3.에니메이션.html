@@ -2,18 +2,153 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    
+    <title>Title</title>    
     
 </head>
 <body>
     
     <input id='prev'  type="button" value="<<" />
     <input id='next'  type="button" value=">>" />
-    <input id='start' type="button" value="시작" />
-    <input id='stop'  type="button" value="정지" />
+    <input id='start' type="button" value="타이머 시작" />
+    <input id='stop'  type="button" value="타이머 정지" disabled="disabled" />
 
     <img id='img' src="images/00.png">
 
 </body>
-</html>
+<script>
+    // 변수선언    
+    var timer = null; // setInterval()로 시작되는 정보를 담는 변수.
+
+    // 이미지 배열작성
+    png = [
+        'images/00.png',
+        'images/01.png',
+        'images/02.png',
+        'images/03.png',
+        'images/04.png',
+        'images/05.png',
+        'images/06.png',
+        'images/07.png',
+        'images/08.png',
+        'images/09.png',
+        'images/10.png',
+        'images/11.png',
+        'images/12.png',
+        'images/13.png',
+        'images/14.png'
+    ]
+
+    // 이벤트 핸드러(리스터)
+    // 1) id = img 를 찾는다
+    // 2) 찾은 태그의 src 값을 변경한다.
+
+    var img = document.getElementById('img');
+    
+    //  id= 'next' 에 클릭 이벤트 설정
+    var next = document.getElementById('next');
+    next.onclick = function(event) {
+        // window.alert('next 클릭');    
+        // console.log(img.src);
+
+        // 현재 이미지의 파일명을 추출
+        var sno = img.src.substr(img.src.length-6,2);        
+        // console.log(sno);   
+
+        // 추출한 파일명을 숫자로 변환
+        var ino = Number(sno); 
+
+        // 이미지 번호 ino를 ino-1 한다
+        ino = ino + 1 ;
+        if (ino == 15) {
+            ino = 0;
+        } 
+        img.src = png[ino]; // png array에 해당하는 값을 불러옴        
+
+    };
+
+    //  id= 'prev' 에 클릭 이벤트 설정
+    var prev = document.getElementById('prev');
+    prev.onclick = function(event) {
+        // window.alert('prev 클릭');    
+        // console.log(img.src);
+
+        // 현재 이미지의 파일명을 추출
+        var sno = img.src.substr(img.src.length-6,2);        
+        // console.log(sno);   
+
+        // 추출한 파일명을 숫자로 변환
+        var ino = Number(sno); 
+
+        // 이미지 번호 ino를 ino-1 한다
+        ino = ino - 1 ;
+
+        // 이미지 번호 ino가 -1이면 ino를 14로 설정한다. 
+        if (ino == -1) {
+            ino = 14;
+        } 
+
+        img.src = png[ino]; // png array에 해당하는 값을 불러옴        
+
+    };
+
+    // 타이머 설정하기
+    // 1. start, stop에 click 이벤트 설정
+    var start = document.getElementById('start');
+    var stop = document.getElementById('stop');
+
+    // 2. start를 클릭하면 
+    start.onclick = function(event) {
+        // window.alert('strat 버튼 클릭');
+
+        // disabled 설정
+        //  stop 버튼을 활성화
+        //  start 버튼 비활성화
+        stop.disabled = false;
+        start.disabled = true;
+        
+        //  1초마다 타이머 설정. setInterval() 함수 사용
+
+        timer = setInterval(function() {myTimer()}, 80);
+
+        var myTimer = function(event) {
+            // 현재 이미지의 파일명을 추출
+            var sno = img.src.substr(img.src.length-6,2);        
+            // console.log(sno);   
+
+            // 추출한 파일명을 숫자로 변환
+            var ino = Number(sno); 
+
+            // 이미지 번호 ino를 ino-1 한다
+            ino = ino + 1 ;
+            if (ino == 15) {
+                ino = 0;
+            } 
+            img.src = png[ino]; // png array에 해당하는 값을 불러옴        
+        }
+
+    };
+
+    // 3. stop를 클릭하면 
+    stop.onclick = function(event) {
+        // window.alert('stop 버튼 클릭');
+
+        // disabled 설정
+        //  stop 버튼을 비활성화
+        //  start 버튼 활성화
+        stop.disabled = true;
+        start.disabled = false;
+
+        //  Timer 종료, cleartInterval() 함수 사용
+        clearInterval(timer);
+        // clearInterval(timerID);
+
+    };
+    
+
+
+
+</script>
+
+
+</html>
+

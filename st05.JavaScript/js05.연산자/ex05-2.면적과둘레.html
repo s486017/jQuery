@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <title>면적과 둘레 구하기</title>
     <style></style>
+    <script>
+        var w, h ;
+
+        w = Number(prompt('길이를 입력하세요', '0'));
+        h = Number(prompt('높이를 입력하세요', '0'));
     
+        var area = w * h;
+        var perimeter = 2*(w + h);
+
+        console.log( '사각형의 넓이 : ' + area);
+        console.log( '사각형의 둘레 : ' + perimeter);
+    
+    </script>
 </head>
 <body>
 </body>
-</html>
+</html>

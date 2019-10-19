@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        var arr1 = [];
+        for (var i=0; i<5 ;i++) {
+            arr1[i] = prompt( i+'번째 값을 입력하시오', '' );
+            arr1[i] = Number(arr1[i]);
+        }
+
+        // document.write( arr1 );
+        console.log(arr1);
+
+        for (var i=0; i < arr1.length ; i++) {
+            console.log( i+'번째 : '+ arr1[i] );            
+        }
+
+        // document.write( '<br> 정렬하기!!! <br>');
+
+        // var _sort1 = arr1.sort();
+        // document.write('<br>그냥 정렬 : ' + _sort1 );
+        // // console.log(arr1);
+    
+        // var _sort2 = arr1.sort(function (a, b) { // 오름차순
+        //     return a - b;        
+        // });
+
+        // document.write('<br>숫자 정렬 : ' + _sort2 );
+        // console.log(arr1);
+
+
+    </script>
     
 </head>
 <body>
 
 </body>
-</html>
+</html>

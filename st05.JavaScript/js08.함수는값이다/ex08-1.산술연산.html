@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>산술 연산</title>
+    <script>
+        // 함수 정의
+        var Add = function(a, b) {
+            return a+b;
+        };
+        var Sub = function(a, b) {
+            return a-b;
+        };
+        var Mul = function(a, b) {
+            return a*b;
+        };
+        var Div = function(a, b) {
+            return a/b;
+        };
+
+        // 값 입력받기
+        var arr = [];
+        for (var i=0; i<2 ;i++) {
+            arr[i] = prompt( i+'번째 값을 입력하시오', '' );
+            arr[i] = Number(arr[i]);
+        };
+
+        // 계산할 값을 변수에 저장
+        var x = arr[0];
+        var y = arr[1];
+
+        // 결과 출력
+        console.log('First num : ' + x);
+        console.log('Second num : ' + y);
+
+        console.log('Add : ' + Add(x,y));
+        console.log('Sub : ' + Sub(x,y));
+        console.log('Mul : ' + Mul(x,y));
+        console.log('Div : ' + Div(x,y));
     
+    </script>
 </head>
 <body>
 
 </body>
-</html>
+</html>

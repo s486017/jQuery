@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Array 객체 메서드</title>
-    
+    <script>
+        var arr5 = [2, 34, 30, 3, 156];
+
+        console.log("단순출력");
+        for(var i in arr5) {
+            console.log(i+"번째 : " + arr5[i]);
+        }
+
+        console.log("정렬출력");
+        var _sort1 = arr5.sort();
+        for(var i in arr5) {
+            console.log(i+"번째 : " + arr5[i]);
+        }
+
+        var _sort2 = arr5.sort(function (a, b) { // 오름차순
+            return a - b;        
+        });
+
+        console.log("숫자기준 정렬");
+        for(var i in _sort2) {
+            console.log(i+"번째 : " + _sort2[i]);
+        }
+
+    </script>
+
 </head>
+
 <body>
 
 </body>
-</html>
+
+</html>

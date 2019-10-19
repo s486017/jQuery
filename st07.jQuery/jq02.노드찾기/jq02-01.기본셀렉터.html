@@ -12,6 +12,10 @@
             background-color: #EEEEEE;
         }
         hr { clear:both; }
+
+        .all {
+            border:2px dotted red
+        }
     </style>
 </head>
 <body>
@@ -36,4 +40,47 @@
 </html>
 
 <!-- 임포트 -->
-
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+
+    // <input id='all'     type='button' value="*">
+    $('#all').on('click',function(event) {
+        // window.alert('all');
+        $('*').toggleClass('all');
+        // $('*').css({
+        //     'border':'2px dotted red' 
+        // });
+    });
+    // <input id='id'      type='button' value="id">
+    $('#id').on('click',function(event) {
+        // window.alert('id');
+        $('#content').css({
+            'background-color':'yellow' 
+        });
+    });
+    // <input id='element' type='button' value="element">
+    $('#element').on('click',function(event) {
+        // window.alert('element');
+        $('div').css({
+            'border':'2px solid red' 
+        });
+    });
+    // <input id='class'   type='button' value="class">
+    $('#class').on('click',function(event) {
+        // window.alert('class');
+        $('.myClass').css({
+            'border':'2px dashed blue' 
+        });
+    });
+    // <input id='multi'   type='button' value="multi">
+    $('#multi').on('click',function(event) {
+        // window.alert('multi');
+        $('p, #content').css({
+            'border':'2px dashed blue' 
+        });
+    });
+
+    
+</script>
+
