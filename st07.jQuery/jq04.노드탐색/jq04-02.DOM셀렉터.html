@@ -50,4 +50,19 @@
 </html>
 
 <!-- 임포트 -->
-
+
+<script src="..//jquery-3.4.1.js"></script>
+<script>
+    $('#children').on('click', function(event){
+        $('#siteUrl').find('li').css('border', '');        
+        $('#siteUrl').css('border', '1px dotted blue');        
+        $('#siteUrl').children('li').css('border', '1px solid red');
+    });
+
+    $('#descendant').on('click', function(event){
+        $('#siteUrl').find('li').css('border', '');        
+        $('#siteUrl').css('border', '1px dotted blue');        
+        $('#siteUrl').find('li').css('border', '1px solid red');
+    });
+
+</script>

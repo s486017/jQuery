@@ -41,6 +41,7 @@
         <br>
         <button id="prop_read"  >checkbox checked 프러퍼티 읽기(R)</button>
         <button id="prop_create">radio에 checked 프러퍼티 추가(C)</button>
+        <!-- <button id="prop_toggle">radio에 checked 프러퍼티 토글(C/D)</button> -->
         <button id="prop_update">checkbox checked 프러퍼티 수정(U)</button>
         <button id="prop_delete">disabled 프러퍼티 삭제(D)</button>
         <div id="result_prop">  </div>
@@ -49,5 +50,78 @@
 </html>
 
 <!-- 임포트 -->
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    // value attribute CRUD
+    $('#value_read').on('click', function(event) {
+        var result = $('#text').val();        
+        window.alert(result);
+    });
 
-
+    $('#value_create').on('click', function(event) {
+        var result = $('#text').val();
+        $('#text').val(result + ' > 추가 ');
+    });
+
+    $('#value_update').on('click', function(event) {
+         $('#text').val($('#value_update').text());
+
+    });
+
+    $('#value_delete').on('click', function(event) {
+        $('#text').val('');
+    });
+
+    // 프로퍼티 CRUD
+    $('#prop_read').on('click', function(event) {
+        var result = $('input[name="aaa"]').prop('checked');        
+        window.alert(result);
+    });
+
+    // $('#prop_read').on('click', function(event) {
+    //     var result = $('input[name="aaa"]').prop('checked');        
+    //     window.alert(result);
+    // });
+
+    $('#prop_create').on('click', function(event) {
+        
+        $('input[type=radio]').attr('checked', 'checked');
+        var result = $('input[type=radio]').attr('checked');
+        window.alert('attr result :' + result); // => checked
+
+        // $('input[name="bbb"]').prop('checked',true);
+        var result = $('input[type=radio]').prop('checked');
+        window.alert('prop result :' + result); // => checked
+
+    });
+
+    $('#prop_update').on('click', function(event) {
+        $('input[name="aaa"]').prop('checked', function(){
+            return !$(this).prop('checked');
+        });
+        // var result = $('input[type=checkbox]').prop('checked');
+        // if(result) {
+        //     $('input[type=checkbox]').prop('checked', false);
+        // }
+        // else {
+        //     $('input[type=checkbox]').prop('checked', true);
+        // };
+
+    });
+    
+    // $('#prop_toggle').on('click', function(event) {
+    //     $('input[name="bbb"]').prop('checked', function(){
+    //         return !$(this).prop('checked');
+    //     });
+    // });
+
+    $('#prop_delete').on('click', function(event) {
+        $('input[name="ccc"]').prop('disabled', false);
+        // console.log($('input[name="ccc"]').attr('disabled'));
+    });
+
+
+
+
+</script>
+

@@ -49,6 +49,8 @@
 
 <script src="../jquery-3.4.1.js"></script>
 <script>
+
+    // tag node CRUD
     $('#element_read').on('click', function(event){
         var result = $('p.pclick').html();
         window.alert(result);
@@ -63,7 +65,34 @@
         $('#result_element').html(result);
     });
 
+    $('#element_delete').on('click', function(event){
+        // $('#result_element').html('');      // 텍스트 엘리먼트를 빈값으로 업데이트
+        $('#result_element').remove();          // 엘리먼트 삭제
+    });
+
+    // text node CRUD
+
+    $('li.text_read').on('click', function(event){
+        var result = $(this).text();       
+        window.alert(result);
+        var result = $('p.pclick').text();       
+        window.alert(result);
+    });
+
+    $('li.text_create').on('click', function(event){
+        var result = $(this).html()+' > 추가 ';       
+        $(this).html(result);
+    });
+
+    $('li.text_update').on('click', function(event){
+        $(this).html($('p.pclick').html());        
+    });
+
+    $('li.text_delete').on('click', function(event){
+        $(this).html('');        
+    });
 
 
 
 </script>
+

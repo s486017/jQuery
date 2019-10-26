@@ -1,26 +1,77 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <style>
-        span    { display:block; margin: 5px; }
-        div     { cursor: pointer; width: 520px; background: #eaffbb; padding-bottom: 5px; }
-        p       { margin:4px;  font-weight:bolder; cursor:pointer; }
-        hr      { width: 500px; float: left; }
-        ul      { width: 300px; }
-        button  { cursor: pointer; }
-        img     { padding:5px; width:130px; height:130px; border:1px solid gray; }
+        span {
+            display: block;
+            margin: 5px;
+        }
 
-        #style  {  border: 1px dotted green; }
+        div {
+            cursor: pointer;
+            width: 520px;
+            background: #eaffbb;
+            padding-bottom: 5px;
+        }
 
-        .gray   { background-color: #959FA9; height: 20px; margin-top: 10px; }
-        .white  { background-color: white; }
-        .red    { background-color: red !important;}
-        .yellow { background-color: yellow; }
+        p {
+            margin: 4px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
 
-        .toggleStyle { background-color: red;   color:white;}
+        hr {
+            width: 500px;
+            float: left;
+        }
+
+        ul {
+            width: 300px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        img {
+            padding: 5px;
+            width: 130px;
+            height: 130px;
+            border: 1px solid gray;
+        }
+
+        #style {
+            border: 1px dotted green;
+        }
+
+        .gray {
+            background-color: #959FA9;
+            height: 20px;
+            margin-top: 10px;
+        }
+
+        .white {
+            background-color: white;
+        }
+
+        .red {
+            /* background-color: red ; */
+            background-color: red !important;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .toggleStyle {
+            background-color: red;
+            color: white;
+        }
     </style>
 </head>
+
 <body>
 
     <h3>&lt;img src="" style="" class="" data-sw="" /&gt;</h3>
@@ -29,10 +80,10 @@
     <div>
         <h4>일반 속성 CRUD</h4>
         <div class="pclick">
-            <img id="img1" src="images/im1.jpg" style="" class="" data-sw="data값" >
-            <img id="img2" >
+            <img id="img1" src="images/im1.jpg" style="" class="" data-sw="data값">
+            <img id="img2">
         </div>
-        <button id="attr_read"  >일반속성 읽기(R)</button>
+        <button id="attr_read">일반속성 읽기(R)</button>
         <button id="attr_create">일반속성 추가(C)</button>
         <button id="attr_update">일반속성 수정(U)</button>
         <button id="attr_delete">일반속성 삭제(D)</button>
@@ -44,7 +95,7 @@
         <h4>style 속성 CRUD</h4>
         <span id="style" style="background-color: white;">엘리먼트에 style CRUD 하기</span>
 
-        <button id="style_read"  >style 읽기(R)</button>
+        <button id="style_read">style 읽기(R)</button>
         <button id="style_create">style 추가(C)</button>
         <button id="style_update">style 수정(U)</button>
         <button id="style_delete">style 삭제(D)</button>
@@ -56,11 +107,11 @@
         <h4>class 속성 CRUD</h4>
         <span id="class" class="white">엘리먼트에 class CRUD 하기</span>
 
-        <button id="class_read"       >class 읽기(R)</button>
-        <button id="class_create"     >class 추가(C)</button>
-        <button id="class_update"     >red를 yellow class로 수정(U)</button>
+        <button id="class_read">class 읽기(R)</button>
+        <button id="class_create">class 추가(C)</button>
+        <button id="class_update">red를 yellow class로 수정(U)</button>
         <button id="class_delete_part">white class 삭제(D)</button>
-        <button id="class_delete_all" >class 전체삭제(D)</button>
+        <button id="class_delete_all">class 전체삭제(D)</button>
         <div id="result_class" class="gray"></div>
     </div>
     <hr>
@@ -74,8 +125,93 @@
         </p>
     </div>
 </body>
+
 </html>
 
 <!-- 임포트 -->
 
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    // 일반 속성 CRUD
+    $('#attr_read').on('click', function (event) {
+        var result = $('#img1').attr('src');
+        $('#result_attr').html(result);
+    });
+
+    $('#attr_create').on('click', function (event) {
+        $('#img2').attr('src', 'images/im2.jpg');        
+    });
+
+    $('#attr_update').on('click', function (event) {
+        $('#img2').attr('src', 'images/im3.jpg');        
+    });
+
+    $('#attr_delete').on('click', function (event) {
+        $('#img2').removeAttr('src');        
+    });
+
+    // style 속성 CRUD
+    $('#style_read').on('click', function (event) {
+        var result = $('#style').css('border');                
+        $('#result_style').html(result);
+    });
+
+    $('#style_create').on('click', function (event) {
+        $('#style').css('border', '2px solid rgb(0, 0, 255)');
+        var result = $('#style').css('border');                
+        $('#result_style').html(result);
+    });
+
+    $('#style_update').on('click', function (event) {
+        $('#style').css('border', '2px dashed rgb(0, 0, 255)');
+        var result = $('#style').css('border');                
+        $('#result_style').html(result);
+    });
+
+    $('#style_delete').on('click', function (event) {
+        $('#style').css('border','');
+        // $('#style').removeAttr('border');
+        var result = $('#style').css('border');                
+        $('#result_style').html(result);
+    });
+
+    // class 속성 CRUD
+    $('#class_read').on('click', function (event) {
+        var result = $('#class').hasClass('white');                
+        window.alert(result);
+
+        var result = $('#class').attr('class');                
+        $('#result_class').html(result);
+    });
+
+    $('#class_create').on('click', function (event) {
+        $('#class').addClass('red');
+        var result = $('#class').attr('class');                
+        $('#result_class').html(result);
+    });
+
+    $('#class_update').on('click', function (event) {
+        $('#class').removeClass('red').addClass('yellow');        
+        var result = $('#class').attr('class');                
+        $('#result_class').html(result);
+    });
+
+    $('#class_delete_part').on('click', function (event) {
+        $('#class').removeClass('white');
+        var result = $('#class').attr('class');                
+        $('#result_class').html(result);
+    });
+
+    $('#class_delete_all').on('click', function (event) {
+        // $('#class').attr('class', '');
+        $('#class').removeClass();
+        var result = $('#class').attr('class');                
+        $('#result_class').html(result);
+    });
+
+    $('p[class]').on('click', function (event) {
+        // $(this).toggleClass('yellow').toggleClass('red');
+        $(this).toggleClass('red');
+    });
+
+</script>

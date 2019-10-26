@@ -52,6 +52,7 @@
     <input class="siblings" type="button" value="siblings()">
     &nbsp; / &nbsp;
     <input class="children" type="button" value="children()">
+    <input class="children3" type="button" value="children3()">
 
     <hr>
     <div id="result">&nbsp;</div>
@@ -59,4 +60,55 @@
 </html>
 
 <!-- 임포트 -->
-
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $('#center').css('border', '2px solid blue');
+
+    $('.parents').on('click', function(event){
+        $('#center').parents().css('border', '2px dotted black');
+    });
+
+    $('.parent').on('click', function(event){
+        $('#center').parent().css('border', '2px dotted black');
+    });
+
+    $('.prevAll').on('click', function(event){
+        $('#center').prevAll().css('border', '2px dotted black');
+    });
+
+    $('.first').on('click', function(event){
+        // 부모를 이용해서 찾아야 함
+        $('#center').parent().children().first().css('border', '2px dotted black');        
+    });
+    $('.prev').on('click', function(event){
+        $('#center').prev().css('border', '2px dotted black');        
+    });
+
+    $('.nextAll').on('click', function(event){
+        $('#center').nextAll().css('border', '2px dotted black');        
+    });
+
+    $('.next').on('click', function(event){
+        $('#center').next().css('border', '2px dotted black');        
+    });
+
+    $('.last').on('click', function(event){
+        // 부모를 이용해서 찾아야 함
+        $('#center').parent().children().last().css('border', '2px dotted black');        
+    });
+
+    $('.siblings').on('click', function(event){
+        $('#center').siblings().css('border', '2px dotted black');        
+    });
+
+    $('.children').on('click', function(event){
+        $('#center').children().css('border', '2px dotted black');        
+    });
+
+    $('.children3').on('click', function(event){
+        $('#center').children('#fourth').css('border', '2px dotted black');        
+    });
+
+</script>
+
