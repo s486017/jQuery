@@ -10,6 +10,12 @@
 	    .odd{ background: rgba(51, 69, 205, 0.27); }
 	    .even{ background:#F2F2F2; }
 	    .hover{ background:#B2D8FF; }
+
+        /* <tbody> > <tr> */
+        /* tbody > tr:hover {
+             background:#B2D8FF;
+        } */
+
 	</style>
 </head>
 <body>
@@ -52,4 +58,41 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+
+    // 홀수/짝수 스타일 적용
+    $('tbody > tr:even').addClass('even');       
+    $('tbody > tr:odd').addClass('odd');        
+
+    //  마우스 오버한 경우 이벤트
+    $('tbody > tr').on('mouseover', function() {
+        // 수평설정
+        $(this).addClass('hover');        
+    });
+
+    // 수직설정
+    $('tbody > tr > td').on('mouseover', function() {       
+        var col_index = $(this).index()+1;        
+        var str = 'td:nth-child('+col_index+')';
+        
+        $(str).addClass('hover');
+        $(this).on('mouseout', function() {
+            var col_index = $(this).index()+1;   
+            $(str).removeClass('hover');
+        });
+    });
+    
+    // 초기화
+
+    $('tbody > tr').on('mouseout', function() {
+        $(this).removeClass('hover');        
+    });
+    // $('tbody > tr > td').on('mouseout', function() {
+    //     var col_index = $(this).index()+1;
+    //     // console.log(col_index);
+    //     $('td:nth-child('+col_index+')').removeClass('hover');
+    // });
+    
+</script>
+

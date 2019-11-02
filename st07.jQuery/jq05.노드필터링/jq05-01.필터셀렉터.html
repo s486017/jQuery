@@ -51,4 +51,69 @@
 </html>
 
 <!-- 임포트 -->
-
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $('#eq').on('click', function(event) { 
+        // $('tr:first').html();
+        $('td');
+        $('td:eq(7)');
+        $('td:eq(7)').css('background-color', 'red');
+    }) ;
+
+    $('#gt').on('click', function(event) { 
+        $('tr:eq(1) > td:gt(2)').css('background-color', 'yellow');
+
+    }) ;
+    $('#lt').on('click', function(event) { 
+        $('tr:eq(1) > td:lt(2)').css('background-color', 'orange');
+    }) ;
+    $('#odd').on('click', function(event) { 
+        $('tr:eq(2) > td:odd').css('background-color', 'blue');
+    }) ;
+    $('#even').on('click', function(event) { 
+        $('tr:eq(2) > td:even').css('background-color', 'green');
+    }) ;
+    $('#first').on('click', function(event) { 
+        $('tr:eq(3) > td:first').css('background-color', 'green');
+    }) ;    
+    $('#last').on('click', function(event) { 
+        $('tr:eq(3) > td:last').css('background-color', 'green');
+    }) ;
+
+    $('#ex1').on('click', function(event) { 
+        $('tr:even').css('background-color', 'green');
+    }) ;
+    $('#ex2').on('click', function(event) { 
+        $('td:odd').css('background-color', 'green');
+    }) ;
+
+    $('#ex3').on('click', function(event) { 
+        $('tr:even > td:odd').css('background-color', 'green');
+    }) ;
+    $('#ex4').on('click', function(event) { 
+        $('td:nth-child(3n+1)').css('background-color', 'green');
+    }) ;
+    $('#ex5').on('click', function(event) { 
+        $('td:first-child').css('background-color', 'green');
+    }) ;
+
+    $('#ex6').on('click', function(event) { 
+        $('td:first-child').css('background-color', 'green');
+        $('td:last-child').css('background-color', 'green');
+    }) ;
+    $('#ex7').on('click', function(event) { 
+        $('td:nth-child(3)').css('background-color', 'green');
+    }) ;
+    $('#ex8').on('click', function(event) { 
+        $('td:first-child').css('background-color', 'red');
+        $('tr:nth-child(3) > td:nth-child(5)').attr('colspan','6');
+        $('tr:eq(2) > td:eq(4)').attr('colspan','6');
+        $('tr:eq(2) > td:gt(4)').remove();
+        // $('tr:nth-child(3) > td:gt(3)').css('background-color', 'yellow');
+
+        $('td:last-child').css('background-color', 'yellow');
+    }) ;
+
+</script>
+

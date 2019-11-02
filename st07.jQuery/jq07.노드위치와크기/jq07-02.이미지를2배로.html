@@ -14,4 +14,23 @@
    <img src="images/im1.jpg" />
 </body>
 </html>
-
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $('img').on('click',function(event){   
+        var imgheight = $(this).height();
+        var imgwidth = $(this).width();
+
+        // console.log(width);
+        // console.log($(window).width());
+        
+            if ( imgwidth*2 > $(window).width()) {            
+                window.alert("화면보다 이미지가 큽니다.!!!")
+            } else {
+                $(this).height(imgheight*2);
+                $(this).width(imgwidth*2);
+            };
+    });
+
+
+</script>

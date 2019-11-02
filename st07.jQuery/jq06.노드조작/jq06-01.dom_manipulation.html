@@ -10,6 +10,8 @@
         #center { border: 2px dashed #696cff; }
         #center p { margin: 10px; background: #b96dff; }
         .border { border: 2px dashed #ffb42e; margin: 5px; display:block; background: #b96dff; }
+        .padding { padding: 20px !important;}
+        
     </style>
 </head>
 <body>
@@ -47,4 +49,62 @@
     </div>
 </body>
 </html>
-
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    var getTime = function() {
+        // javascript 날짜 , 시간을 위한 객체는 Date
+        var result = new Date().toLocaleTimeString();
+        return result;
+    };
+
+    $('.html').on('click', function(event) {
+        var str = "<div class='selected'>서승원입니다.</div>";
+        $('#center').html(str);
+    });
+    $('.prepend').on('click', function(event) {
+        
+        // var str = $('#center').html();
+        // var str = "<div>prepend "+d+"</div>"+str;
+        // $('#center').html(str);
+
+        var str = "<div>prepend " + getTime() + "</div>";
+        $('#center').prepend(str);
+
+    });
+    $('.append').on('click', function(event) {
+        
+        var str = "<div>append " + getTime() + "</div>";
+        $('#center').append(str);
+
+    });
+    $('.before').on('click', function(event) {
+        var str = "<div>before " + getTime() + "</div>";
+        $('#center').before(str);
+    });
+    $('.after').on('click', function(event) {
+        var d = new Date();
+        var str = "<div>after  "+ getTime() + "</div>";
+        $('#center').after(str);
+    });
+
+    ///////////////////////////////////////////////////////////
+
+    $('.wrap').on('click', function(event) {
+        $('#center').children().addClass('padding selected');
+    });
+    $('.replacewith').on('click', function(event) {
+        console.log($('#center > p:eq(1)').html());
+        $('#center > p:eq(1)').addClass('selected').html('Replace Text');
+
+        // $('#center > p:eq(1)').replaceWith(str);
+    });
+    $('.clone').on('click', function(event) {
+        var str = $('#center').clone();
+        window.alert(str);
+
+    });
+    $('.empty').on('click', function(event) {});
+    $('.remove').on('click', function(event) {});
+
+</script>
